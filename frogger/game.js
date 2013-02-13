@@ -30,9 +30,9 @@ function canvas_init(){
 	
 	ctx.fillStyle = "#00FF00"; //text
 	ctx.font = "20pt Helvetica";
-	ctx.fillText("Level 1", 65,535);
+	ctx.fillText("Level:", 65,535);
 	ctx.font = "14pt Helvetica";
-	ctx.fillText("Score:", 2,560);
+	ctx.fillText("Score:      Highscore:", 2,560);
 	
 	ctx.drawImage(spriteSheet, 13, 12, 324, 35, 25, 16, 324, 34); //header
 	
