@@ -3,6 +3,8 @@ var ctx;
 var spriteSheet = new Image();
 spriteSheet.src = "assets/frogger_sprites.png";
 
+var w1 = 120, w2 = 153, w3 = 186, w4 = 219, w5 = 250;
+var r1 = 315, r2, r3, r4, r5;
 
 function start_game(){
 	//initialization
@@ -41,62 +43,62 @@ function canvas_init(){
 }
 
 function draw_logs_long(dx){
-	ctx.drawImage(spriteSheet, 0, 165, 185, 24, dx      , 175, 185, 24);
-	ctx.drawImage(spriteSheet, 0, 165, 185, 24, dx + 240, 175, 185, 24);
+	ctx.drawImage(spriteSheet, 0, 165, 185, 24, dx      , w3, 185, 24);
+	ctx.drawImage(spriteSheet, 0, 165, 185, 24, dx + 240, w3, 185, 24);
 }
 
 function draw_logs_med(dx){
-	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx - 180, 120, 125, 24);
-	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx      , 120, 125, 24);
-	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx + 180, 120, 125, 24);	
+	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx - 180, w1, 125, 24);
+	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx      , w1, 125, 24);
+	ctx.drawImage(spriteSheet, 0, 196, 125, 24, dx + 180, w1, 125, 24);	
 }
 
 function draw_logs_short(dx){
-	ctx.drawImage(spriteSheet, 0, 230, 88, 24, dx - 180, 117, 88, 24);
-	ctx.drawImage(spriteSheet, 0, 230, 88, 24, dx      , 117, 88, 24);
-	ctx.drawImage(spriteSheet, 0, 230, 88, 24, dx + 180, 117, 88, 24);
+	ctx.drawImage(spriteSheet, 0, 230, 93, 24, dx - 180, w4, 93, 24);
+	ctx.drawImage(spriteSheet, 0, 230, 93, 24, dx      , w4, 93, 24);
+	ctx.drawImage(spriteSheet, 0, 230, 93, 24, dx + 180, w4, 93, 24);
 }
 
 function draw_double_turtles_pos1(dx){
-	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx     , 145, 32, 22);
-	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx + 38, 145, 32, 22);
+	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx     , w2, 32, 22);
+	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx + 38, w2, 32, 22);
 }
 
 function draw_double_turtles_pos2(dx){
-	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx     , 145, 32, 22);
-	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx + 38, 145, 32, 22);
+	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx     , w2, 32, 22);
+	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx + 38, w2, 32, 22);
 }
 
 function draw_double_turtles_pos3(dx){
-	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx     , 145, 32, 22);
-	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx + 38, 145, 32, 22);
+	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx     , w2, 32, 22);
+	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx + 38, w2, 32, 22);
 }
 
 function draw_2_dive_turtles_pos2(dx){
-	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx     , 145, 32, 22);
-	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx + 38, 145, 32, 22);
+	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx     , w2, 32, 22);
+	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx + 38, w2, 32, 22);
 }
 
 function draw_2_dive_turtles_pos3(dx){
-	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx     , 145, 32, 22);
-	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx + 38, 145, 32, 22);
+	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx     , w2, 32, 22);
+	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx + 38, w2, 32, 22);
 }
 
-function draw_r1_turtles_pos1(dx){
+function draw_w2_turtles_pos1(dx){
 	draw_double_turtles_pos1(dx);
 	draw_double_turtles_pos1(dx + 130);
 	draw_double_turtles_pos1(dx + 260);
 	draw_double_turtles_pos1(dx + 390);
 }
 
-function draw_r1_turtles_pos2(dx){
+function draw_w2_turtles_pos2(dx){
 	draw_2_dive_turtles_pos2(dx);
 	draw_double_turtles_pos2(dx + 130);
 	draw_double_turtles_pos2(dx + 260);
 	draw_double_turtles_pos2(dx + 390);
 }
 
-function draw_r1_turtles_pos3(dx){
+function draw_w2_turtles_pos3(dx){
 	draw_2_dive_turtles_pos3(dx);
 	draw_double_turtles_pos3(dx + 130);
 	draw_double_turtles_pos3(dx + 260);
@@ -104,36 +106,36 @@ function draw_r1_turtles_pos3(dx){
 }
 
 function draw_triple_turtles_pos1(dx){
-	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx - 38, 254, 32, 22);
-	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx     , 254, 32, 22);
-	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx + 38, 254, 32, 22);
+	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx - 38, w5, 32, 22);
+	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx     , w5, 32, 22);
+	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx + 38, w5, 32, 22);
 }
 
 function draw_triple_turtles_pos2(dx){
-	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx - 38, 254, 32, 22);
-	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx     , 254, 32, 22);
-	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx + 38, 254, 32, 22);
+	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx - 38, w5, 32, 22);
+	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx     , w5, 32, 22);
+	ctx.drawImage(spriteSheet, 52, 406, 32, 22, dx + 38, w5, 32, 22);
 }
 
 function draw_triple_turtles_pos3(dx){
-	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx - 38, 254, 32, 22);
-	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx     , 254, 32, 22);
-	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx + 38, 254, 32, 22);
+	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx - 38, w5, 32, 22);
+	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx     , w5, 32, 22);
+	ctx.drawImage(spriteSheet, 93, 406, 32, 22, dx + 38, w5, 32, 22);
 }
 
 function draw_3_dive_turtles_pos2(dx){
-	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx - 38, 254, 32, 22);
-	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx     , 254, 32, 22);
-	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx + 38, 254, 32, 22);
+	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx - 38, w5, 32, 22);
+	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx     , w5, 32, 22);
+	ctx.drawImage(spriteSheet, 133, 406, 32, 22, dx + 38, w5, 32, 22);
 }
 
 function draw_3_dive_turtles_pos3(dx){
-	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx - 38, 254, 32, 22);
-	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx     , 254, 32, 22);
-	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx + 38, 254, 32, 22);
+	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx - 38, w5, 32, 22);
+	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx     , w5, 32, 22);
+	ctx.drawImage(spriteSheet, 175, 407, 32, 22, dx + 38, w5, 32, 22);
 }
 
-function draw_r2_turtles_pos1(dx){
+function draw_w5_turtles_pos1(dx){
 	draw_triple_turtles_pos1(dx);
 	draw_triple_turtles_pos1(dx + 130);
 	draw_triple_turtles_pos1(dx + 260);
@@ -141,7 +143,7 @@ function draw_r2_turtles_pos1(dx){
 	draw_triple_turtles_pos1(dx + 520);
 }
 
-function draw_r2_turtles_pos2(dx){
+function draw_w5_turtles_pos2(dx){
 	draw_triple_turtles_pos2(dx);
 	draw_triple_turtles_pos2(dx + 130);
 	draw_triple_turtles_pos2(dx + 260);
@@ -149,7 +151,7 @@ function draw_r2_turtles_pos2(dx){
 	draw_3_dive_turtles_pos2(dx + 520);
 }
 
-function draw_r2_turtles_pos3(dx){
+function draw_w5_turtles_pos3(dx){
 	draw_triple_turtles_pos3(dx);
 	draw_triple_turtles_pos3(dx + 130);
 	draw_triple_turtles_pos3(dx + 260);
@@ -158,8 +160,8 @@ function draw_r2_turtles_pos3(dx){
 }
 
 function draw_trucks(dx){	
-	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx      , 315, 50, 24);
-	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx + 150, 315, 50, 24);
+	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx      , r1, 50, 24);
+	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx + 150, r1, 50, 24);
 }
 	
 function play_game(){
@@ -167,6 +169,7 @@ function play_game(){
 	draw_trucks(100);
 	draw_logs_med(100);
 	draw_logs_long(10);
-	draw_r2_turtles_pos2(-200);
-	draw_r1_turtles_pos2(0);
+	draw_logs_short(30);
+	draw_w5_turtles_pos2(-200);
+	draw_w2_turtles_pos2(0);
 }	
