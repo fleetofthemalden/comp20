@@ -4,14 +4,16 @@ var spriteSheet = new Image();
 spriteSheet.src = "assets/frogger_sprites.png";
 
 var w1 = 120, w2 = 153, w3 = 186, w4 = 219, w5 = 250;
-var r1 = 315, r2, r3, r4, r5;
+var r1 = 315, r2 = 348, r3 = 381, r4 = 414, r5 = 450;
 
 function start_game(){
 	//initialization
 
 	canvas_init();
+	
+	test_render();
 
-	play_game();
+	//play_game();
 	
 }
 
@@ -40,6 +42,38 @@ function canvas_init(){
 	ctx.drawImage(spriteSheet, 0, 119, 399, 35, 2, 279, 395, 35); //roadside
 	ctx.drawImage(spriteSheet, 0, 119, 399, 35, 2, 480, 395, 35); //roadside
 	
+}
+
+function draw_frog_static_up(dx, dy){
+	ctx.drawImage(spriteSheet, 11, 368, 22, 21, dx, dy, 23, 22);
+}
+
+function draw_frog_static_down(dx, dy){
+	ctx.drawImage(spriteSheet, 79, 368, 22, 21, dx, dy, 23, 22);
+}
+
+function draw_frog_static_left(dx, dy){
+	ctx.drawImage(spriteSheet, 81, 335, 21, 22, dx, dy, 22, 23);
+}
+
+function draw_frog_static_right(dx, dy){
+	ctx.drawImage(spriteSheet, 12, 335, 21, 22, dx, dy, 22, 23);
+}
+
+function draw_frog_move_up(dx, dy){
+	ctx.drawImage(spriteSheet, 45, 365, 24, 24, dx, dy, 25, 25);
+}
+
+function draw_frog_move_down(dx, dy){
+	ctx.drawImage(spriteSheet, 113, 365, 24, 24, dx, dy, 25, 25);
+}
+
+function draw_frog_move_left(dx, dy){
+	ctx.drawImage(spriteSheet, 112, 338, 24, 24, dx, dy, 25, 25);
+}
+
+function draw_frog_move_right(dx, dy){
+	ctx.drawImage(spriteSheet, 42, 336, 24, 24, dx, dy, 25, 25);
 }
 
 function draw_logs_long(dx){
@@ -105,6 +139,18 @@ function draw_w2_turtles_pos3(dx){
 	draw_double_turtles_pos3(dx + 390);
 }
 
+function draw_double_turtles(dx){
+	if(dx % 3 == 1){
+		draw_w2_turtles_pos1(dx);
+	}
+	else if(dx % 3 == 2){
+		draw_w2_turtles_pos2(dx);
+	}
+	else{
+		draw_w2_turtles_pos3(dx);
+	}
+}
+
 function draw_triple_turtles_pos1(dx){
 	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx - 38, w5, 32, 22);
 	ctx.drawImage(spriteSheet, 14, 406, 32, 22, dx     , w5, 32, 22);
@@ -159,17 +205,88 @@ function draw_w5_turtles_pos3(dx){
 	draw_3_dive_turtles_pos3(dx + 520);
 }
 
+function draw_triple_turtles(dx){
+	if(dx % 3 == 1){
+		draw_w5_turtles_pos1(dx);
+	}
+	else if(dx % 3 == 2){
+		draw_w5_turtles_pos2(dx);
+	}
+	else{
+		draw_w5_turtles_pos3(dx);
+	}
+}
+
 function draw_trucks(dx){	
 	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx      , r1, 50, 24);
 	ctx.drawImage(spriteSheet, 104, 300, 50, 24, dx + 150, r1, 50, 24);
 }
-	
-function play_game(){
 
+function draw_fast_cars(dx){
+	ctx.drawImage(spriteSheet, 45, 265, 30, 24, dx     , r2, 30, 24);
+	ctx.drawImage(spriteSheet, 45, 265, 30, 24, dx + 80, r2, 30, 24);
+}
+
+function draw_pink_cars(dx){
+	ctx.drawImage(spriteSheet, 9, 265, 30, 24, dx      , r3, 30, 24);
+	ctx.drawImage(spriteSheet, 9, 265, 30, 24, dx + 100, r3, 30, 24);
+	ctx.drawImage(spriteSheet, 9, 265, 30, 24, dx + 200, r3, 30, 24);
+	ctx.drawImage(spriteSheet, 9, 265, 30, 24, dx + 300, r3, 30, 24);
+}
+
+function draw_tractor_things_pos1(dx){
+	ctx.drawImage(spriteSheet, 9, 300, 30, 24, dx  - 100, r4, 30, 24);
+	ctx.drawImage(spriteSheet, 9, 300, 30, 24, dx       , r4, 30, 24);
+	ctx.drawImage(spriteSheet, 9, 300, 30, 24, dx  + 100, r4, 30, 24);
+}
+
+function draw_tractor_things_pos2(dx){
+	ctx.drawImage(spriteSheet, 40, 300, 30, 24, dx  - 100, r4, 30, 24);
+	ctx.drawImage(spriteSheet, 40, 300, 30, 24, dx       , r4, 30, 24);
+	ctx.drawImage(spriteSheet, 40, 300, 30, 24, dx  + 100, r4, 30, 24);
+}
+
+function draw_tractor_things_pos3(dx){
+	ctx.drawImage(spriteSheet, 72, 300, 30, 24, dx  - 100, r4, 30, 24);
+	ctx.drawImage(spriteSheet, 72, 300, 30, 24, dx       , r4, 30, 24);
+	ctx.drawImage(spriteSheet, 72, 300, 30, 24, dx  + 100, r4, 30, 24);
+}
+
+function draw_tractor_things(dx){
+	if(dx % 3 == 1){
+		draw_tractor_things_pos1(dx);
+	}
+	else if(dx % 3 == 2){
+		draw_tractor_things_pos2(dx);
+	}
+	else{
+		draw_tractor_things_pos3(dx);
+	}
+}
+
+function draw_yellow_cars(dx){
+	ctx.drawImage(spriteSheet, 81, 265, 30, 24, dx      , r5, 30, 24);
+	ctx.drawImage(spriteSheet, 81, 265, 30, 24, dx + 100, r5, 30, 24);
+	ctx.drawImage(spriteSheet, 81, 265, 30, 24, dx + 200, r5, 30, 24);
+	ctx.drawImage(spriteSheet, 81, 265, 30, 24, dx - 100, r5, 30, 24);
+}
+
+function test_render(){
+	
+	draw_frog_move_right(200, 485);
+	//passed:
 	draw_trucks(100);
+	draw_fast_cars(100);
+	draw_pink_cars(10);
+	draw_tractor_things(169);
+	draw_yellow_cars(10);
 	draw_logs_med(100);
 	draw_logs_long(10);
 	draw_logs_short(30);
-	draw_w5_turtles_pos2(-200);
-	draw_w2_turtles_pos2(0);
+	draw_triple_turtles(-200);
+	draw_double_turtles(8);
 }	
+
+function play_game(){
+	
+}
