@@ -6,14 +6,21 @@ spriteSheet.src = "assets/frogger_sprites.png";
 var w1 = 120, w2 = 153, w3 = 186, w4 = 219, w5 = 250;
 var r1 = 315, r2 = 348, r3 = 381, r4 = 414, r5 = 450;
 
+var fx = 184, fy = 485;
+
+var lv = 1;
+var lives = 3;
+var delay = 5000;
+var pos = 40;
+
 function start_game(){
 	//initialization
 
 	canvas_init();
 	
-	test_render();
+	//test_render();
 
-	//play_game();
+	play_game();
 	
 }
 
@@ -31,9 +38,10 @@ function canvas_init(){
 	
 	ctx.fillStyle = "#00FF00"; //text
 	ctx.font = "20pt Helvetica";
-	ctx.fillText("Level:", 65,535);
+	ctx.fillText("Level:", 95,535);
+	ctx.fillText(lv, 185,535);//level
 	ctx.font = "14pt Helvetica";
-	ctx.fillText("Score:      Highscore:", 2,560);
+	ctx.fillText("Score:                  Highscore:", 2,560);
 	
 	ctx.drawImage(spriteSheet, 13, 12, 324, 35, 25, 16, 324, 34); //header
 	
@@ -42,10 +50,71 @@ function canvas_init(){
 	ctx.drawImage(spriteSheet, 0, 119, 399, 35, 2, 279, 395, 35); //roadside
 	ctx.drawImage(spriteSheet, 0, 119, 399, 35, 2, 480, 395, 35); //roadside
 	
+	draw_frog_static_up(4, 516); //initialize lives
+	draw_frog_static_up(32, 516);
+	draw_frog_static_up(60, 516);
+	
+	ctx.save();
+}
+
+function play_game(){
+	while(!game_over()){
+		ctx.save();
+		render_all();
+		setInterval(render_all, delay);
+		ctx.restore();
+	}
+}
+
+function render_all(){
+	draw_frog();
+	pos = pos % 500 + 4;
+	draw_logs_long(pos);
+}
+
+function game_over(){
+	return false;
+}
+
+function lose_life(){
+	if(lives == 0){
+		game_over();
+	}
+	ctx.restore();
+	lives = lives -1;
+	ctx.fillStyle = "#000000"; //cover lost life
+	ctx.fillRect(3 + (lives*28),512,28,26);
+	fx = 184;
+	fy = 485;
+	ctx.save();
+}
+
+function display_score(score){
+	ctx.restore();
+	ctx.fillStyle = "#000000"; //hide old score
+	ctx.fillRect(70, 540, 75, 23);
+	ctx.fillStyle = "#00FF00"; //text
+	ctx.font = "14pt Helvetica";
+	ctx.fillText(score, 80,560);
+	ctx.save();
+}
+
+function display_high_score(score){
+	ctx.restore();
+	ctx.fillStyle = "#000000"; //hide old score
+	ctx.fillRect(242, 540, 75, 23);
+	ctx.fillStyle = "#00FF00"; //text
+	ctx.font = "14pt Helvetica";
+	ctx.fillText(score, 255,560);
+	ctx.save();
+}
+
+function draw_frog(){
+	draw_frog_static_up(fx,fy); //write full func later
 }
 
 function draw_frog_static_up(dx, dy){
-	ctx.drawImage(spriteSheet, 11, 368, 22, 21, dx, dy, 23, 22);
+	ctx.drawImage(spriteSheet, 11, 368, 22, 22, dx, dy, 23, 22);
 }
 
 function draw_frog_static_down(dx, dy){
@@ -273,8 +342,11 @@ function draw_yellow_cars(dx){
 
 function test_render(){
 	
-	draw_frog_move_right(200, 485);
-	//passed:
+	display_high_score(9001);
+	display_score(9000);
+	draw_frog_move_right(fx, fy);
+	//lose_life();
+	//lose_life();
 	draw_trucks(100);
 	draw_fast_cars(100);
 	draw_pink_cars(10);
@@ -287,6 +359,3 @@ function test_render(){
 	draw_double_turtles(8);
 }	
 
-function play_game(){
-	
-}
