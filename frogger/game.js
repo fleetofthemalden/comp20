@@ -10,17 +10,17 @@ var fx = 184, fy = 485;
 
 var lv = 1;
 var lives = 3;
-var delay = 5000;
+var delay = 50;
 var pos = 40;
+var timeout = 0;
 
 function start_game(){
-	//initialization
 
 	canvas_init();
 	
-	//test_render();
+	test_render();
 
-	play_game();
+	//play_game();
 	
 }
 
@@ -57,12 +57,13 @@ function canvas_init(){
 	ctx.save();
 }
 
-function play_game(){
-	while(!game_over()){
+function play_game(){ //this function doesn't work right now.
+	while(!game_over() && timeout < 500){
 		ctx.save();
 		render_all();
 		setInterval(render_all, delay);
 		ctx.restore();
+		timeout++;
 	}
 }
 
@@ -70,9 +71,11 @@ function render_all(){
 	draw_frog();
 	pos = pos % 500 + 4;
 	draw_logs_long(pos);
+	//plus all other opjects.
 }
 
 function game_over(){
+	//implement later
 	return false;
 }
 
@@ -344,7 +347,7 @@ function test_render(){
 	
 	display_high_score(9001);
 	display_score(9000);
-	draw_frog_move_right(fx, fy);
+	draw_frog();
 	//lose_life();
 	//lose_life();
 	draw_trucks(100);
