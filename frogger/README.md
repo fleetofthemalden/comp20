@@ -2,7 +2,28 @@ README
 
 Dixon Minnick
 
-Assignment 2: Frogger
+Assignment 2/4: Frogger
+___________________________________________
+
+Part 2:
+
+Collaboration:
+None
+
+Correctly Implemented:
+All basic requirements.
+
+Additionally Implemented:
+Dead Frog image.
+Sound.
+Level Progression.
+
+Time Spent:
+7-10 hours.
+
+___________________________________________
+
+Part 1:
 
 Collaboration:
 I saw an example in the Apple documentation in which each sprite had its
