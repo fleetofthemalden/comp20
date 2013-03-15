@@ -21,6 +21,9 @@ Level Progression.
 Time Spent:
 7-10 hours.
 
+Additionally, I created an alternate version in the subdirectory "pokemon" using pokemon
+sprites. Check it out.
+
 ___________________________________________
 
 Part 1:
