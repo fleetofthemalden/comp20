@@ -467,18 +467,8 @@ function draw_double_turtles_pos2(dx){
 }
 
 function draw_double_turtles_pos3(dx){
-	draw(spriteSheet, 93, 406, 32, 22, dx     , w2, 32, 22);
-	draw(spriteSheet, 93, 406, 32, 22, dx - 38, w2, 32, 22);
-}
-
-function draw_2_dive_turtles_pos3(dx){
-	draw(spriteSheet, 133, 406, 32, 22, dx     , w2, 32, 22);
-	draw(spriteSheet, 133, 406, 32, 22, dx - 38, w2, 32, 22);
-}
-
-function draw_2_dive_turtles_pos4(dx){
-	draw(spriteSheet, 175, 407, 32, 22, dx     , w2, 32, 22);
-	draw(spriteSheet, 175, 407, 32, 22, dx - 38, w2, 32, 22);
+	draw(poke, 55, 488, 22, 22, dx     , w2, 31, 26);
+	draw(poke, 55, 488, 22, 22, dx - 38, w2, 31, 26);
 }
 
 function draw_w2_turtles_pos1(dx){
@@ -494,26 +484,21 @@ function draw_w2_turtles_pos2(dx){
 }
 
 function draw_w2_turtles_pos3(dx){
-	draw_2_dive_turtles_pos3(dx);
+	draw_double_turtles_pos3(dx);
 	draw_double_turtles_pos3(dx - 130);
 	draw_double_turtles_pos3(dx - 260);
 }
 
 function draw_w2_turtles_pos4(dx){
-	draw_2_dive_turtles_pos4(dx);
-	draw_double_turtles_pos1(dx - 130);
-	draw_double_turtles_pos1(dx - 260);
+	draw_w2_turtles_pos1(dx);
 }
 
 function draw_w2_turtles_pos5(dx){
-	draw_double_turtles_pos2(dx - 260);
-	draw_double_turtles_pos2(dx - 130);
+	draw_w2_turtles_pos2(dx);
 }
 
 function draw_w2_turtles_pos6(dx){
-	draw_2_dive_turtles_pos4(dx);
-	draw_double_turtles_pos3(dx - 130);
-	draw_double_turtles_pos3(dx - 260);
+	draw_w2_turtles_pos3(dx);
 }
 
 function draw_double_turtles(dx){
@@ -538,9 +523,9 @@ function draw_double_turtles(dx){
 }
 
 function draw_triple_turtles_pos1(dx){
-	draw(spriteSheet, 14, 406, 32, 22, dx - 38, w5, 32, 22);
-	draw(spriteSheet, 14, 406, 32, 22, dx     , w5, 32, 22);
-	draw(spriteSheet, 14, 406, 32, 22, dx - 76, w5, 32, 22);
+	draw(poke, 55, 466, 22, 22, dx     , w5, 31, 26);
+	draw(poke, 55, 466, 22, 22, dx - 38, w5, 31, 26);
+	draw(poke, 55, 466, 22, 22, dx - 76, w5, 31, 26);
 }
 
 function draw_triple_turtles_pos2(dx){
