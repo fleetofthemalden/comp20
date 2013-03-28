@@ -6,6 +6,12 @@
 <head>
 <title>Fecesbook</title>
 <script>
+	function init(){
+		for(key in localStorage){
+			postStatus(localStorage[key]);
+		}
+	}
+
 	function getStatus(){
 		var statusText = document.getElementById("msg");
 		var status = statusText.value;
@@ -22,26 +28,29 @@
 		}
 		time = time.toString() + ":" + min;
 		date = date.toLocaleDateString();
-		status = date + " " + time + " - " + status;
+		date = date + " " + time;
+		status = date + " - " + status;
 		statusText.value = statusText.defaultValue;
+		localStorage[new Date()] = status;
 		return status;
 	}
 	
 	function updateStatus(){
+		postStatus(getStatus());
+	}
+	
+	function postStatus(status){
 		var node = document.createElement("DIV");
-		var status = getStatus();
 		var statusNode = document.createTextNode(status);
 		node.appendChild(statusNode);
 		var newStatus = document.getElementById("status");
 		newStatus.insertBefore(node, newStatus.childNodes[0]);
-		status = "poop=" + status;
-		document.cookie = "poop=smelly";
 	}
 	
 </script>
 </head>
 
-<body>
+<body onload="init()">
 	<h1>Fecebook</h1>
 	<div id="nav">
 		<ul>
