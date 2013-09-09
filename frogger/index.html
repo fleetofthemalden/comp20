@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
+<html manifest="manifest.appcache">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Frogger</title>
 <link rel="stylesheet" href="style.css">
-<script src="game.js"></script>
 </head>
-<audio autoplay loop>
-	<source src="assets/TeamRocket.mp3" type="audio/mpeg">
-</audio>
-<body onload="start_game()">
+<body>
 <div id="game_div">
 <canvas id="game_canvas" height="565" width="399"></canvas>
 </div>
+<script src="game.js" onload="start_game()"></script>
 </body>
 </html>

@@ -83,8 +83,8 @@ function init(){
 	humanInit();
 	stationInit();
 	reqaction = addtrains;
-	//makeRequest("http://mbtamap-cedar.herokuapp.com/mapper/redline.json");
-	makeRequest("http://developer.mbta.com/lib/rthr/red.json");
+	makeRequest("http://mbtamap-cedar.herokuapp.com/mapper/redline.json");
+	//makeRequest("http://developer.mbta.com/lib/rthr/red.json");
 	getMyLocation();
 }
 
@@ -101,7 +101,7 @@ function callback(){
 			parse(request.responseText);
 		}
 		catch(err){
-			alert("asf;lsn");
+			alert("No Train Data Available");
 			
 		}
 		

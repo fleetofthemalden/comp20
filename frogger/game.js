@@ -2,8 +2,6 @@ var canvas;
 var ctx;
 var spriteSheet = new Image();
 spriteSheet.src = "assets/frogger_sprites.png";
-var deadFrog = new Image();
-deadFrog.src = "assets/dead_frog.png";
 
 var w1 = 120, w2 = 153, w3 = 186, w4 = 219, w5 = 250;
 var r1 = 315, r2 = 348, r3 = 381, r4 = 414, r5 = 450;
@@ -269,12 +267,12 @@ function openHiScoreWin(){
 }
 
 function lose_life(){
-	ctx.drawImage(deadFrog, 4, 3, 22, 24, frog.fx, frog.fy, 23, 22);
-	ctx.drawImage(deadFrog, 4, 3, 22, 24, frog.fx, frog.fy, 23, 22);
+	ctx.drawImage(spriteSheet, 208, 171, 22, 24, frog.fx, frog.fy, 23, 22);
+	ctx.drawImage(spriteSheet, 208, 171, 22, 24, frog.fx, frog.fy, 23, 22);
 	if(lives == 0){
 		game_over();
 	}
-	ctx.drawImage(deadFrog, 4, 3, 22, 24, frog.fx, frog.fy, 23, 22);
+	ctx.drawImage(spriteSheet, 208, 171, 22, 24, frog.fx, frog.fy, 23, 22);
 	lives = lives -1;
 	frog.fx = fx_i;
 	frog.fy = fy_i;

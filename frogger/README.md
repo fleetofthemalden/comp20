@@ -2,7 +2,35 @@ README
 
 Dixon Minnick
 
-Assignment 2/4: Frogger
+Comp 20 Assignment 2/4: Frogger
+Comp 120 Assignment 1: Optimizing Frogger
+___________________________________________
+120:
+
+Collaboration:
+None
+
+
+		 			Before	After
+PageSpeed
+Rating:				93/100	
+_
+
+YSlow
+Overall:				A	
+
+Use CDN:				B	
+Expires Headers:		D	
+Small cachable favicon:	B	
+All other categories:	A	
+
+1) Optimizations done:
+-Placed JavaScript tag below content, as not to hinder the content loading first
+-Removed Audio (single largest HTTP request)
+-Combined sprites into single SpriteSheet (1 fewer request)
+-Added all resources to HTML5 offline cache
+
+
 ___________________________________________
 
 Part 2:
