@@ -10,25 +10,36 @@ ___________________________________________
 Collaboration:
 None
 
-
-		 			Before	After
-PageSpeed
-Rating:				93/100	
-_
-
-YSlow
-Overall:				A	
-
-Use CDN:				B	
-Expires Headers:		D	
-Small cachable favicon:	B	
-All other categories:	A	
-
 1) Optimizations done:
 -Placed JavaScript tag below content, as not to hinder the content loading first
 -Removed Audio (single largest HTTP request)
 -Combined sprites into single SpriteSheet (1 fewer request)
 -Added all resources to HTML5 offline cache
+-Minified Javascript
+
+2) Using Chrome Developer Tools, I can see that all of the HTTP status requests are now 304 Not Modified. When accessing the site for the first time on firefox, I was asked if the website could "store data for offline use". 
+
+3,4)
+
+		 			Before	After
+Chrome Dev Tools
+Requests:				7	4
+Transferred:		288MB	247B
+Time				4.80S	186mS
+
+PageSpeed
+Rating:				93/100	93/100
+
+YSlow Ratings
+Overall:				A	A
+Use CDN:				B	A
+Expires Headers:		D	D
+Small cachable favicon:	B	B
+All other categories:	A	A
+
+The improvements made are rather small. The most significant change was the use of cached resources and the removal of the audio file from the game. This reduced both the number and size of the requests made.
+
+
 
 
 ___________________________________________
